@@ -66,7 +66,7 @@ public class AuthencationService {
     }
 
     private String generateToken(String userName) {
-        JWSHeader header = new JWSHeader(JWSAlgorithm.HS256);
+        JWSHeader header = new JWSHeader(JWSAlgorithm.HS512);
         JWTClaimsSet jwtClaimsSet = new JWTClaimsSet.Builder()
                 .subject(userName)
                 .issuer("heheh")
