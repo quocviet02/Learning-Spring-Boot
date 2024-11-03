@@ -8,21 +8,16 @@ import lombok.experimental.FieldDefaults;
 import java.time.LocalDate;
 import java.util.Set;
 
-
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class UserUpdateRequest {
-
+public class MyInfoRequest {
     String userName;
     String passWord;
     int age;
     LocalDate dob;
-
-    @NotEmpty(message = "IVALID_EMAIL")
-    @Email(message = "IVALID_EMAIL")
     String email;
     Set<String> role;
 }

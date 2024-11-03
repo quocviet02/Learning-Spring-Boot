@@ -10,6 +10,7 @@ import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -31,8 +32,16 @@ public class UserController {
 
     @GetMapping
     List<User> getUsers(){
+        var authentication = SecurityContextHolder.getContext().getAuthentication();//get thông tin hiện tại đang đăng nhập trong request
         return userService.getUsers();
     }
+
+    //get my info
+    @GetMapping("/myInfo")
+    User getMyInfo(){
+        return userService.getMyInfo();
+    }
+
 
     @GetMapping("/{userId}")
     User getUser(@PathVariable("userId") String userId){
